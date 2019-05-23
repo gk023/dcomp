@@ -1,0 +1,20 @@
+Target Z                 40
+Target A                 90
+Projectile Z             1
+Projectile A             1
+w1                       15.000 
+w2                       55.000
+Ef+ (MeV)                2.135
+Ef- (MeV)                -1.065
+n (Brown-Rho power)      4.0
+rw (fm)                  1.288
+aw (fm)                  0.540
+HF real V (MeV)          64.400
+HF real r (fm)           1.210
+HF real a (fm)           0.660
+Coulomb radius (fm)      1.29
+Rmatch (fm)              75.0
+Lmax                     60.0
+Npts                     16384
+GSL integration abs_err  1.0e-8
+GSL integratin rel_err   1.0e-8
