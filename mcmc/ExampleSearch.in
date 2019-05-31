@@ -61,3 +61,11 @@ GSL integratin rel_err   1.0e-8
 190   525.068677754   0.1
 195   455.676087838   0.1
 200   579.476048375   0.1
+
+&Numerics
+
+Total Pulls         2
+Thinning            1
+Burn-in             0
+Step Scale         0.005
+
