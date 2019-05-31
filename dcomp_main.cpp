@@ -164,9 +164,9 @@ int main()
    //Define the RK4 stepper for the complex vector used to store chi_L, chi_L'
    typedef runge_kutta4< state_type > stepper_type;
 
-   cout << " *************************************" << endl;
-   cout << " ****** Running DCOMP version 1 ******" << endl;
-   cout << " *************************************" << endl;
+   //cout << " *************************************" << endl;
+   //cout << " ****** Running DCOMP version 1 ******" << endl;
+   //cout << " *************************************" << endl;
 
    double Z_t, A_t, Z_p, A_p, w1, w2, Ef_plus, Ef_minus, n, Ef, rw, aw, Vhf, rhf, ahf, 
           rc, rmax, Lmax, Npts, int_abs_err, int_rel_err;
@@ -182,50 +182,50 @@ int main()
    // Hartree-Fock volume, radius, diffuseness, Coulomb radius, matching radius,
    // mesh points, integration absolute error, and integration relative error.
    // Python script provides all the standard input for the code from the card file
-   cout << "Running with the following parameters:" << endl;
+   //cout << "Running with the following parameters:" << endl;
    cin >> Z_t;
-   cout << "Target Z--> " << Z_t << endl;
+   //cout << "Target Z--> " << Z_t << endl;
    cin >> A_t;
-   cout << "Target A--> " << A_t << endl;
+   //cout << "Target A--> " << A_t << endl;
    cin >> Z_p;
-   cout << "Projectile Z--> " << Z_p << endl;
+   //cout << "Projectile Z--> " << Z_p << endl;
    cin >> A_p;
-   cout << "Projectile A--> " << A_p << endl;
+   //cout << "Projectile A--> " << A_p << endl;
    cin >> w1;
-   cout << "Imaginary volume w1--> " << w1 << endl;
+   //cout << "Imaginary volume w1--> " << w1 << endl;
    cin >> w2;
-   cout << "Imaginary volume w2--> " << w2 << endl;
+   //cout << "Imaginary volume w2--> " << w2 << endl;
    cin >> Ef_plus;
-   cout << "E_F+--> " << Ef_plus << endl;
+   //cout << "E_F+--> " << Ef_plus << endl;
    cin >> Ef_minus;
-   cout << "E_F- --> " << Ef_minus << endl;
+   //cout << "E_F- --> " << Ef_minus << endl;
    Ef = 0.5*(Ef_plus-Ef_minus);
-   cout << "Average Fermi energy--> " << Ef << endl;
+   //cout << "Average Fermi energy--> " << Ef << endl;
    cin >> n;
-   cout << "Power of Brown-Rho shape--> " << n << endl;
+   //cout << "Power of Brown-Rho shape--> " << n << endl;
    cin >> rw;
-   cout << "Imaginary volume radius--> " << rw << endl;
+   //cout << "Imaginary volume radius--> " << rw << endl;
    cin >> aw;
-   cout << "Imaginary volume diffuseness--> " << aw << endl;
+   //cout << "Imaginary volume diffuseness--> " << aw << endl;
    cin >> Vhf;
-   cout << "Hartree-Fock real Volume--> " << Vhf << endl;
+   //cout << "Hartree-Fock real Volume--> " << Vhf << endl;
    cin >> rhf;
-   cout << "Hartree-Fock real radius--> " << rhf << endl;
+   //cout << "Hartree-Fock real radius--> " << rhf << endl;
    cin >> ahf;
-   cout << "Hartree-Fock real diffuseness--> " << ahf << endl;
+   //cout << "Hartree-Fock real diffuseness--> " << ahf << endl;
    cin >> rc;
-   cout << "Coulomb Radius--> " << rc << endl;
+   //cout << "Coulomb Radius--> " << rc << endl;
    cin >> rmax;
-   cout << "Matching Radius--> " << rmax << endl;
+   //cout << "Matching Radius--> " << rmax << endl;
    cin >> Lmax;
-   cout << "Max Angular Momentum--> " << Lmax << endl;
+   //cout << "Max Angular Momentum--> " << Lmax << endl;
    cin >> Npts;
-   cout << "Mesh Points--> " << Npts << endl;
+   //cout << "Mesh Points--> " << Npts << endl;
    cin >> int_abs_err;
-   cout << "GSL absolute integration error--> " << int_abs_err << endl;
+   //cout << "GSL absolute integration error--> " << int_abs_err << endl;
    cin >> int_rel_err;
-   cout << "GSL relative error--> " << int_rel_err << endl;
-   cout << "*********************************************" << endl;
+   //cout << "GSL relative error--> " << int_rel_err << endl;
+   //cout << "*********************************************" << endl;
    //Set everthing up to begin calculating the dispersive corrections to the optical potential
 
    gsl_integration_workspace *work_ptr
@@ -345,7 +345,7 @@ int main()
    
          
          RL=y[0]/(rmax*y[1]);  //R-matrix element
-         cout << "\n R-Matrix element for wave " << L << ": " << RL << endl;
+         //cout << "\n R-Matrix element for wave " << L << ": " << RL << endl;
        
          double eta = esq*Z_t*Z_p*k/(2.*E); //Sommerfeld parameter
         
@@ -354,9 +354,9 @@ int main()
          // Now get the S-matrix element with the asymptotics
          SL = (HL.Hminus() - rmax*RL*HL.Hminus_prime())/(HL.Hplus() - rmax*RL*HL.Hplus_prime());
 
-         cout << "\n S-Matrix element for wave " << L << ": " << SL << endl;
+         //cout << "\n S-Matrix element for wave " << L << ": " << SL << endl;
    
-         cout << "\n |S| for wave " << L << ": " << abs(SL) << endl;
+         //cout << "\n |S| for wave " << L << ": " << abs(SL) << endl;
    
          //L_out.close(); //uncomment if you are printing wave functions
    

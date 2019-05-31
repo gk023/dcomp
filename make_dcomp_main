@@ -95,7 +95,7 @@ MOREFLAGS= -Wpedantic -Wpointer-arith -Wcast-qual -Wcast-align \
            -Wwrite-strings -fshort-enums 
 
 # add relevant libraries and link options
-LIBS= -I /usr/local/boost_1_67_0/          
+LIBS= -I /projects/fewbody/KING/software/boost_1_67_0/          
 LDFLAGS= -lgsl -lgslcblas 
  
 ###########################################################################

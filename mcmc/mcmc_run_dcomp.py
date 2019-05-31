@@ -28,7 +28,7 @@ import sys
 def dcomp(parameters,energies):
         
 
-	my_command='/home/gk023/dcomp/dcomp_main.x'
+	my_command='/projects/fewbody/KING/dcomp/dcomp_main.x'
 	energies = energies.tolist()
 	energies = [str(x) for x in energies]
 	number_of_energies = str(len(energies))
@@ -37,16 +37,16 @@ def dcomp(parameters,energies):
         #print("Running DCOMP with the following inputs:\n")
         #print(inputs,'\n')
 	p=Popen([my_command,'-u'], stdout=PIPE, stdin=PIPE, stderr=STDOUT, bufsize=1)
-	print p.stdout.readline()
+	#print p.stdout.readline()
 
 	for i in range(len(inputs)):
 		print >>p.stdin, inputs[i]
 		p.stdin.flush()
-		print p.stdout.readline()
+	#	print p.stdout.readline()
 
-	with p.stdout:
-		for line in iter(p.stdout.readline, b''):
-			print line,
+	#with p.stdout:
+	#	for line in iter(p.stdout.readline, b''):
+	#		print line,
 	p.wait()
 
 	cross_sections=[]
@@ -166,7 +166,7 @@ skip = float(numerics[1])
 burn_in = int(numerics[2])
 step_scale = float(numerics[3])
 
-print("Pulling "+str(max_accept)+" parameters with:\nThinning: "+str(skip)+"\nBurn-in: "+str(burn_in)+"\nStep Scaling: "+str(step_scale))
+print("\n\nPulling "+str(max_accept)+" parameters with:\nThinning: "+str(skip)+"\nBurn-in: "+str(burn_in)+"\nStep Scaling: "+str(step_scale))
 
 #Grab the parameters we're varying in the run
 start=parameter_list[4:6]+parameter_list[9:14]
@@ -174,6 +174,9 @@ start=[float(x) for x in start] #make them floats
 centers = np.asarray(start) #The means for the priors
 
 #Get data, likelihood, prior*likelihood combo for inital data set
+
+print("Initial Data Set:")
+
 start_th = dcomp(parameter_list,exp_data[:,0])
 
 start_like = likelihood(start_th,exp_data,datatype)[0]
