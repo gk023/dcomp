@@ -253,26 +253,26 @@ print("\n\nPulling "+str(max_accept*nproc)+" parameter sets on "+str(nproc)+" pr
 
 
 
-if __name__ == '__main__':
+#if __name__ == '__main__':
 
-	processes = []
+#	processes = []
 
-	for i in range(0,nproc-1):
-		p = mp.Process(target=mcmc, args=(parameter_list,exp_data,datatype,max_accept,skip,burn_in,step_scale,))
-		processes.append(p)
-		p.start()
+#	for i in range(0,nproc-1):
+#		p = mp.Process(target=mcmc, args=(parameter_list,exp_data,datatype,max_accept,skip,burn_in,step_scale,))
+#		processes.append(p)
+#		p.start()
 
-	for process in processes:
-		process.join()
+#	for process in processes:
+#		process.join()
 
 
-	#p=mp.Pool(processes=nproc)
 
-	#result = p.apply_async(mcmc,(parameter_list,exp_data,datatype,max_accept,skip,burn_in,step_scale,))
-	#print(result.get(timeout=9999999))
+p=mp.Pool(processes=nproc)
+result = p.apply_async(mcmc,(parameter_list,exp_data,datatype,max_accept,skip,burn_in,step_scale,))
+print(result.get(timeout=9999999))
 
-#p.close()
-#p.join()
+p.close()
+p.join()
 
 #results.sort(key=lambda x: x[0])
 #results_final = [r for i, r in results]
