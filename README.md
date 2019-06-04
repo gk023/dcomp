@@ -1,6 +1,6 @@
 ###### Project directory ######
 
-In this directort, the files needed to build and run the project are included.
+In this directory, the files needed to build and run the project are included.
 
 More details are given in the documentation file about the specific functio of each file.
 
