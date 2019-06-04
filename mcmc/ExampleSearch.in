@@ -67,5 +67,5 @@ GSL integratin rel_err   1.0e-8
 Total Pulls         2
 Thinning            1
 Burn-in             0
-Step Scale         0.005
-
+Step Scale          0.005
+Processors          4
